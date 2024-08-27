@@ -1,0 +1,85 @@
+<section class="section_form pt-5">
+  <div class="container">
+    <div class="row">
+      <form class="form">
+        <h2>User Profile</h2>
+        <div class="form-group">
+          <label for="email">Full Name:</label>
+          <div class="relative">
+            <input class="form-control style-input"  placeholder="Type your Name..." id="name" type="text" pattern="[a-zA-Z\s]+" required="">
+            <i class="fa fa-user"></i>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email address:</label>
+          <div class="relative">
+            <input class="form-control style-input" type="email" required="" placeholder="Type your email address..." pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+            <i class="fa fa-envelope"></i>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Contact Number:</label>
+          <div class="relative">
+            <input class="form-control style-input" type="text" required="" placeholder="Type your Mobile Number...">
+            <i class="fa fa-phone"></i>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Country:</label>
+          <select class="form-select">
+            <option selected>Select Country</option>
+            <option value="pakistan">Pakistan</option>
+            <option value="india">India</option>
+            <option value="usa">USA</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="me-3">Gender:</label>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="gender" id="male">
+            <label class="form-check-label" for="male">Male</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="gender" id="female" checked>
+            <label class="form-check-label" for="female">Female</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="me-3">Hobbies:</label>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+            <label class="form-check-label" for="inlineCheckbox1">1</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+            <label class="form-check-label" for="inlineCheckbox2">2</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+            <label class="form-check-label" for="inlineCheckbox3">3</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="option4">
+            <label class="form-check-label" for="inlineCheckbox4">4</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="option5">
+            <label class="form-check-label" for="inlineCheckbox5">5</label>
+          </div>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="Accept" value="option1">
+          <label class="form-check-label" for="Accept">Accept The Term & Conditions</label>
+        </div>
+        <div class="tright">
+          <a href=""><button class="movebtn movebtnre me-3" type="Reset"><i class="fa fa-fw fa-refresh"></i> Reset </button></a>
+          <a href=""><button class="movebtn movebtnsu" type="Submit">Submit <i class="fa fa-fw fa-paper-plane"></i></button></a>
+        </div>
+      </form>
+      <div class="thanks" style="display: none;">
+        <h4>Thank you!</h4>
+        <p><small>Your message has been successfully sent.</small></p>
+      </div>
+    </div>
+  </div>
+</section>
