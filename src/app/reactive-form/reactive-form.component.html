@@ -1,0 +1,153 @@
+<section class="section_form pt-5">
+  <div class="container">
+    <div class="row">
+      <form class="form"  [formGroup]="UserData" (ngSubmit)="GetData()">
+        <h2>User Profile</h2>
+        <div class="form-group">
+          <label for="name">Full Name:</label>
+          <div class="relative">
+            <input class="form-control style-input" [class.is-invalid]="this.check['name'].touched && this.check['name'].invalid" formControlName="name"  placeholder="Type your Name..." id="name" type="text">
+          </div>
+          <div class="alert alert-danger py-0" style="font-size: 12px; font-weight: 400; width: fit-content; border-radius: 2px;" *ngIf="this.check['name'].invalid && this.check['name'].touched">
+             <div class="" *ngIf="this.check['name'].errors && this.check['name'].errors['required']">
+               Please Enter Your Name
+             </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email address:</label>
+          <div class="relative">
+            <input id="email" class="form-control style-input" [class.is-invalid]="this.check['email'].touched && this.check['email'].invalid" formControlName="email" type="email" placeholder="Type your email address...">
+          </div>
+          <div class="alert alert-danger py-0" style="font-size: 12px; font-weight: 400; width: fit-content; border-radius: 2px;" *ngIf="this.check['email'].invalid && this.check['email'].touched">
+            <div class="" *ngIf="this.check['email'].errors && this.check['email'].errors['required']">
+              Please Enter Your Email
+            </div>
+            <div class="" *ngIf="check['email'].errors && check['email'].errors['pattern']">
+              Please Enter Your Corrected Email
+            </div>
+         </div>
+        </div>
+        <div class="form-group">
+          <label for="number">Contact Number:</label>
+          <div class="relative">
+            <input id="number" class="form-control style-input" [class.is-invalid]="this.check['number'].touched && this.check['number'].invalid" formControlName="number" type="text" placeholder="Type your Number...">
+          </div>
+          <div class="alert alert-danger py-0" style="font-size: 12px; font-weight: 400; width: fit-content; border-radius: 2px;" *ngIf="this.check['number'].invalid && this.check['number'].touched">
+            <div class="" *ngIf="this.check['number'].errors && this.check['number'].errors['required']">
+              Please Enter Your Contact Number
+            </div>
+            <div class="" *ngIf="check['number'].errors && check['number'].errors['maxlength']">
+              Please Enter Your Corrected Number
+            </div>
+         </div>
+        </div>
+
+
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <div class="relative">
+            <input id="password" class="form-control style-input" [class.is-invalid]="password?.touched && password?.invalid" type="text" formControlName="password" placeholder="Type your Password..." />
+          </div>
+
+          <!-- Error message for invalid password -->
+          <div class="alert alert-danger py-0"  style="font-size: 12px; font-weight: 400; width: fit-content; border-radius: 2px;" *ngIf="password?.touched && password?.invalid" >
+            <div *ngIf="password?.errors?.['required']">  Please Enter Your Password </div>
+            <div *ngIf="password?.errors?.['pattern']"> Your password does not meet the required criteria.</div>
+          </div>
+
+          <!-- Password Requirements Checkboxes -->
+          <ul class="password-criteria mt-2 ps-0" style="list-style: none;">
+            <li style="font-size: 12px; font-weight: 400; margin-bottom: 3px;" [style.color]="isLengthValid ? '#4c8a6b' : '#dc3545'">
+              <input type="checkbox" [checked]="isLengthValid" disabled /> At least 8
+              characters long
+            </li>
+            <li style="font-size: 12px; font-weight: 400; margin-bottom: 3px;" [style.color]="hasUppercase ? '#4c8a6b' : '#dc3545'">
+              <input type="checkbox" [checked]="hasUppercase" disabled /> Must include
+              an uppercase letter
+            </li>
+            <li style="font-size: 12px; font-weight: 400; margin-bottom: 3px;" [style.color]="hasLowercase ? '#4c8a6b' : '#dc3545'">
+              <input type="checkbox" [checked]="hasLowercase" disabled /> Must include
+              a lowercase letter
+            </li>
+            <li style="font-size: 12px; font-weight: 400; margin-bottom: 3px;" [style.color]="hasNumber ? '#4c8a6b' : '#dc3545'">
+              <input type="checkbox" [checked]="hasNumber" disabled /> Must include at
+              least one number
+            </li>
+            <li style="font-size: 12px; font-weight: 400; margin-bottom: 3px;" [style.color]="hasSpecialChar ? '#4c8a6b' : '#dc3545'">
+              <input type="checkbox" [checked]="hasSpecialChar" disabled /> Must include
+              at least one special character
+            </li>
+          </ul>
+        </div>
+
+        <div class="form-group">
+          <label for="country">Country:</label>
+          <select class="form-select" id="country">
+            <option selected>Select Country</option>
+            <option value="pakistan">Pakistan</option>
+            <option value="india">India</option>
+            <option value="usa">USA</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="me-3">Gender:</label>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" formControlName="Gender" [value]="'Male'" type="radio" name="gender" id="male">
+            <label class="form-check-label" for="male">Male</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" formControlName="Gender" [value]="'Female'" name="gender" id="female">
+            <label class="form-check-label" for="female">Female</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="me-3">IsMale:</label>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" formControlName="IsMale" [value]="true" type="radio" name="ismale" id="ismale">
+            <label class="form-check-label" for="ismale">Male</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" formControlName="IsMale" [value]="false" name="ismale" id="isfemale">
+            <label class="form-check-label" for="isfemale">Female</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="me-3">Hobbies:</label>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+            <label class="form-check-label" for="inlineCheckbox1">1</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+            <label class="form-check-label" for="inlineCheckbox2">2</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+            <label class="form-check-label" for="inlineCheckbox3">3</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="option4">
+            <label class="form-check-label" for="inlineCheckbox4">4</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="option5">
+            <label class="form-check-label" for="inlineCheckbox5">5</label>
+          </div>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="Accept" value="option1">
+          <label class="form-check-label" for="Accept">Accept The Term & Conditions</label>
+        </div>
+        <div class="tright">
+          <input class="btn btn-danger me-3"  type="Reset" value="Rest">
+          <input class="btn btn-primary" [class.disabled]="UserData.invalid" type="Submit" value="Submit">
+        </div>
+      </form>
+      <div class="thanks" style="display: none;">
+        <h4>Thank you!</h4>
+        <p><small>Your message has been successfully sent.</small></p>
+      </div>
+    </div>
+  </div>
+</section>
